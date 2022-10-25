@@ -20,12 +20,13 @@ server.on('connection', function(socket) {
         "socketA": socket,
         "socketB": undefined,
         "positions": {
-          "a": undefined,
-          "b": undefined
+          "a": {"x": 200, "y": 100},
+          "b": {"x": 200, "y": 300}
         }
       }
     } else
-    if (task.type == "createroom") {
+    
+    if (task.type == "join_room") {
 
     }
   });
