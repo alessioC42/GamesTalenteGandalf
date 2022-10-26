@@ -10,10 +10,12 @@ var rooms = {}
 server.on('connection', function(socket) {
 
   socket.on('message', (msg) => {
-    let task = JSON.parse(Utf8ArrayToStr(msg))
-    
+    let task = JSON.parse(Utf8ArrayToStr(msg));
+    let asociatedRoom = "";
+
     if (task.type == "createroom" ) {
       let roomID = generateRandomRoomID();
+      asociatedRoom = roomID;
       rooms[roomID] = {
         "status": "not_started",
         "roomID": roomID,
@@ -24,33 +26,64 @@ server.on('connection', function(socket) {
           "b": {"x": 200, "y": 300}
         }
       }
+      socket.send(JSON.stringify({"type": "roomID", "ID": roomID}));
+      console.log("room created: " + roomID);
     } else
-    
-    if (task.type == "join_room") {
 
+    if (task.type == "join_room") {
+      let roomID = task.roomID;
+      console.log("user trys to join lobby: "+ roomID)
+      if (roomID in rooms) {
+        if (rooms[roomID]["socketB"] == undefined) {
+          rooms[roomID]["socketB"] = socket;
+          socket.send(JSON.stringify({"type": "joined_room", "ID": roomID}))
+          setTimeout(()=>{
+            rooms[roomID]["socketA"].send(JSON.stringify({"type": "game_start"}));
+            rooms[roomID]["socketB"].send(JSON.stringify({"type": "game_start"}));
+          }, 100)
+        } else {
+          socket.send(JSON.stringify({"error": "lobby full"}));
+        }
+      } else {
+        socket.send(JSON.stringify({"error": "lobby not found"}));
+      }
+    } else
+
+    if (task.type == "set_position") {
+      console.log("set_positions")
+      let pos = task.position;
+      let roomID = task.roomID;
+
+      if (rooms[roomID]["socketA"] == socket) {
+        rooms[roomID]["positions"]["a"] = pos;
+      } else if (rooms[roomID]["socketB"] == socket) {
+        rooms[roomID]["positions"]["b"] = pos;
+      }
+
+      let sendobj = {
+        "type": "positions",
+        "roomID": roomID,
+        "positions": {
+          "a": rooms[roomID]["positions"]["a"],
+          "b": rooms[roomID]["positions"]["b"]
+        }
+      };
+
+      rooms[roomID]["socketA"].send(JSON.stringify({
+        "type": "positions",
+        "roomID": roomID,
+        "mate": rooms[roomID]["positions"]["b"],
+        "me": rooms[roomID]["positions"]["a"]
+      }));
+      rooms[roomID]["socketB"].send(JSON.stringify({
+        "type": "positions",
+        "roomID": roomID,
+        "mate": rooms[roomID]["positions"]["a"],
+        "me": rooms[roomID]["positions"]["b"]
+      }));
     }
   });
-
 });
-
-
-function generateSID(known_sid) {
-  var getRandomCode = ()=> {
-    do {
-      var randomnumber = random(10000000000000, 99999999999999);
-      if (false ==(String(randomnumber) in known_sid)) {
-        return randomnumber;
-      } 
-    } while (true);
-  }
-  var random = (min, max) => {  
-    return Math.floor(
-      Math.random() * (max - min + 1) + min
-    )
-  }
-
-  return getRandomCode()
-}
 
 function generateRandomRoomID() {
   let ID = "";
