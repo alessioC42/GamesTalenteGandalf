@@ -23,7 +23,6 @@ func _ready():
 func _process(delta):
 	send_input()
 
-
 func send_input():
 	var pos = _global.position_self
 	var input = "0000"
