@@ -48,7 +48,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="statusLabel" type="Label" parent="Control"]
+[node name="statusLabel" type="Label" parent="Control" groups=[
+"errorStatusLabel",
+]]
 margin_top = 407.0
 margin_right = 1023.0
 margin_bottom = 601.0
@@ -56,6 +58,9 @@ text = "Create a lobby or join a lobby to start play."
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Control/createLobbyButton" to="Control" method="_on_createLobbyButton_pressed"]
 [connection signal="focus_exited" from="Control/lobbyEntry" to="Control" method="_on_lobbyEntry_focus_exited"]
 [connection signal="pressed" from="Control/joinLobbyButton" to="Control" method="_on_joinLobbyButton_pressed"]
