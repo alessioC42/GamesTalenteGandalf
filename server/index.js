@@ -1,4 +1,4 @@
-const PORT =17338
+const PORT =17339
 
 const WebSocket = require('ws');
 const server = new WebSocket.Server({
@@ -8,7 +8,9 @@ const server = new WebSocket.Server({
 var rooms = {}
 
 server.on('connection', function(socket) {
-  console.log("connectrion")
+  console.log("connection");
+  var ownRoomID = ""
+
   socket.on('message', (msg) => {
     let task = JSON.parse(Utf8ArrayToStr(msg));
     let asociatedRoom = "";
@@ -32,6 +34,9 @@ server.on('connection', function(socket) {
       }
       socket.send(JSON.stringify({"type": "roomID", "ID": roomID}));
       console.log("room created: " + roomID);
+
+      ownRoomID = roomID
+
     } else
 
     if (task.type == "join_room") {
@@ -40,16 +45,17 @@ server.on('connection', function(socket) {
       if (roomID in rooms) {
         if (rooms[roomID]["socketB"] == undefined) {
           rooms[roomID]["socketB"] = socket;
+          asociatedRoom = roomID;
           socket.send(JSON.stringify({"type": "joined_room", "ID": roomID}))
           setTimeout(()=>{
             rooms[roomID]["socketA"].send(JSON.stringify({"type": "game_start"}));
             rooms[roomID]["socketB"].send(JSON.stringify({"type": "game_start"}));
           }, 100)
         } else {
-          socket.send(JSON.stringify({"error": "lobby full"}));
+          socket.send(JSON.stringify({"type": "error", "error": "lobby full"}));
         }
       } else {
-        socket.send(JSON.stringify({"error": "lobby not found"}));
+        socket.send(JSON.stringify({"type": "error", "error": "lobby not found"}));
       }
     } else
 
@@ -102,7 +108,29 @@ server.on('connection', function(socket) {
       }));
     }
   });
+
+  socket.on("close", ()=>{
+    close_room(ownRoomID);
+  });
+
+  socket.on("error", ()=>{
+    close_room(ownRoomID);
+  })
+
 });
+
+function close_room(roomID) {
+  if (rooms[roomID]) {
+    try {
+      rooms[roomID]["socketA"].send(JSON.stringify({"type": "room_close"}))
+    } catch (_err) {}
+    try {
+      rooms[roomID]["socketB"].send(JSON.stringify({"type": "room_close"}))
+    } catch (_err) {}
+    rooms[roomID] = undefined;
+    console.log("room closed: "+roomID)
+  }
+}
 
 function generateRandomRoomID() {
   let ID = "";
@@ -112,7 +140,6 @@ function generateRandomRoomID() {
   }
   return ID;
 }
-
 
 function Utf8ArrayToStr(array) {
   var out, i, len, c;

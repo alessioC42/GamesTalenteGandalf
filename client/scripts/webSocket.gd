@@ -54,6 +54,10 @@ func _on_data():
 	elif data.type == "inputs":
 		_global.input_mate = data.mate
 		_global.input_self = data.me
+	elif data.type == "error":
+		var errorTextLabel = get_tree().get_nodes_in_group("errorStatusLabel")
+		if len(errorTextLabel) >= 1:
+			errorTextLabel[0].text = data.error
 
 func _create_room():
 	_send_data('{"type":"createroom"}')
