@@ -9,7 +9,9 @@ var roomID = ""
 var speed = 300
 
 func get_position_self_as_vec2():
-	return Vector2(position_self["x"], position_self["y"])
+	var player = get_tree().get_nodes_in_group("player")[0]
+	return Vector2(player.position.x, player.position.y)
 
 func get_position_mate_as_vec2():
-	return Vector2(position_mate["x"], position_mate["y"])
+	var mate = get_tree().get_nodes_in_group("mate")[0]
+	return Vector2(mate.position.x, mate.position.y)

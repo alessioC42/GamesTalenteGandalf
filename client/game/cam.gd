@@ -1,8 +1,8 @@
 extends Camera2D
 
 const SMOOTHNESS = 0.14
-const ZOOM_SMOOTHNESS = 0.05
-const SAFETY_MARGIN = 128 # Set to smth higher than player sprite size, extends the cameras view
+const ZOOM_SMOOTHNESS = 0.01
+const SAFETY_MARGIN = 256 # Set to smth higher than player sprite size, extends the cameras view
 const ZOOM_MIN = 0.9
 const ZOOM_MAX = 10.0
 
