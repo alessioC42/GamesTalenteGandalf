@@ -20,9 +20,7 @@ margin_bottom = 129.0
 text = "create lobby"
 flat = false
 
-[node name="lobbyCodeLabel" type="Label" parent="Control" groups=[
-"lobbyCodeLabel",
-]]
+[node name="lobbyCodeLabel" type="Label" parent="Control" groups=["lobbyCodeLabel"]]
 margin_top = 148.0
 margin_right = 1024.0
 margin_bottom = 192.0
@@ -48,9 +46,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="statusLabel" type="Label" parent="Control" groups=[
-"errorStatusLabel",
-]]
+[node name="statusLabel" type="Label" parent="Control" groups=["errorStatusLabel"]]
 margin_top = 407.0
 margin_right = 1023.0
 margin_bottom = 601.0
@@ -61,6 +57,7 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="Control/createLobbyButton" to="Control" method="_on_createLobbyButton_pressed"]
 [connection signal="focus_exited" from="Control/lobbyEntry" to="Control" method="_on_lobbyEntry_focus_exited"]
 [connection signal="pressed" from="Control/joinLobbyButton" to="Control" method="_on_joinLobbyButton_pressed"]

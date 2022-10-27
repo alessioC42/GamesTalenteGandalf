@@ -1,6 +1,5 @@
 extends Control
 
-
 onready var createLobbyButton = $createLobbyButton
 onready var lobbyCodeLabel = $lobbyCodeLabel
 onready var lobbyEntryLabel = $lobbyEntry
