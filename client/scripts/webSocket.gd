@@ -7,7 +7,6 @@ onready var _global = get_node("/root/global")
 var _client = WebSocketClient.new()
 
 func _ready():
-
 	_client.connect("connection_closed", self, "_closed")
 	_client.connect("connection_error", self, "_closed")
 	_client.connect("connection_established", self, "_connected")
@@ -53,6 +52,9 @@ func _on_data():
 	elif data.type == "positions":
 		_global.position_mate = data.mate
 		_global.position_self = data.me
+	elif data.type == "inputs":
+		_global.input_mate = data.mate
+		_global.input_self = data.me
 
 func _create_room():
 	_send_data('{"type":"createroom"}')
@@ -62,4 +64,8 @@ func _join_room(roomID):
 	_send_data('{"type":"join_room", "roomID": "'+roomID+'"}')
 
 func _send_pos(x, y):
-	_send_data('{"type":"set_position","roomID": "'+_global.roomID+'" ,"position": {"x": '+str(x)+', "y": '+str(y)+'}}')
+	pass
+	#_send_data('{"type":"set_position","roomID": "'+_global.roomID+'" ,"position": {"x": '+str(x)+', "y": '+str(y)+'}}')
+
+func _send_input(inputstr):
+	_send_data('{"type":"set_input","roomID": "'+_global.roomID+'" ,"input": "'+inputstr+'"}')

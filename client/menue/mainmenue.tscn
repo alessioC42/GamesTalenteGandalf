@@ -1,28 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://menue/Control.gd" type="Script" id=2]
-[ext_resource path="res://menue/HachicroUndertaleBattleFontRegular-L3zlg.ttf" type="DynamicFontData" id=3]
-
-[sub_resource type="DynamicFont" id=1]
-size = 33
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 36
-extra_spacing_top = 2
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 35
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 34
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 34
-font_data = ExtResource( 3 )
 
 [node name="mainmenue" type="Node2D"]
 
@@ -39,7 +17,6 @@ margin_left = 1.0
 margin_top = 59.0
 margin_right = 1025.0
 margin_bottom = 129.0
-custom_fonts/font = SubResource( 1 )
 text = "create lobby"
 flat = false
 
@@ -49,7 +26,6 @@ flat = false
 margin_top = 148.0
 margin_right = 1024.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 2 )
 text = "XXXXX"
 align = 1
 valign = 1
@@ -60,14 +36,12 @@ margin_top = 233.0
 margin_right = 652.0
 margin_bottom = 280.0
 hint_tooltip = "Enter lobby code here."
-custom_fonts/font = SubResource( 3 )
 wrap_enabled = true
 
 [node name="joinLobbyButton" type="MenuButton" parent="Control"]
 margin_top = 329.0
 margin_right = 1024.0
 margin_bottom = 399.0
-custom_fonts/font = SubResource( 4 )
 text = "Join"
 flat = false
 __meta__ = {
@@ -78,7 +52,6 @@ __meta__ = {
 margin_top = 407.0
 margin_right = 1023.0
 margin_bottom = 601.0
-custom_fonts/font = SubResource( 5 )
 text = "Create a lobby or join a lobby to start play."
 align = 1
 valign = 1

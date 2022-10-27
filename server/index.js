@@ -1,4 +1,4 @@
-const PORT =17339
+const PORT =17338
 
 const WebSocket = require('ws');
 const server = new WebSocket.Server({
@@ -8,7 +8,7 @@ const server = new WebSocket.Server({
 var rooms = {}
 
 server.on('connection', function(socket) {
-
+  console.log("connectrion")
   socket.on('message', (msg) => {
     let task = JSON.parse(Utf8ArrayToStr(msg));
     let asociatedRoom = "";
@@ -24,6 +24,10 @@ server.on('connection', function(socket) {
         "positions": {
           "a": {"x": 200, "y": 100},
           "b": {"x": 200, "y": 300}
+        },
+        "inputs": {
+          "a": "0000",
+          "b": "0000"
         }
       }
       socket.send(JSON.stringify({"type": "roomID", "ID": roomID}));
@@ -50,7 +54,6 @@ server.on('connection', function(socket) {
     } else
 
     if (task.type == "set_position") {
-      console.log("set_positions")
       let pos = task.position;
       let roomID = task.roomID;
 
@@ -59,15 +62,6 @@ server.on('connection', function(socket) {
       } else if (rooms[roomID]["socketB"] == socket) {
         rooms[roomID]["positions"]["b"] = pos;
       }
-
-      let sendobj = {
-        "type": "positions",
-        "roomID": roomID,
-        "positions": {
-          "a": rooms[roomID]["positions"]["a"],
-          "b": rooms[roomID]["positions"]["b"]
-        }
-      };
 
       rooms[roomID]["socketA"].send(JSON.stringify({
         "type": "positions",
@@ -80,6 +74,31 @@ server.on('connection', function(socket) {
         "roomID": roomID,
         "mate": rooms[roomID]["positions"]["a"],
         "me": rooms[roomID]["positions"]["b"]
+      }));
+    } else 
+    
+    if (task.type == "set_input") {
+
+      let input = task.input;
+      let roomID = task.roomID;
+
+      if (rooms[roomID]["socketA"] == socket) {
+        rooms[roomID]["inputs"]["a"] = input;
+      } else if (rooms[roomID]["socketB"] == socket) {
+        rooms[roomID]["inputs"]["b"] = input;
+      }
+
+      rooms[roomID]["socketA"].send(JSON.stringify({
+        "type": "inputs",
+        "roomID": roomID,
+        "mate": rooms[roomID]["inputs"]["b"],
+        "me": rooms[roomID]["inputs"]["a"]
+      }));
+      rooms[roomID]["socketB"].send(JSON.stringify({
+        "type": "inputs",
+        "roomID": roomID,
+        "mate": rooms[roomID]["inputs"]["a"],
+        "me": rooms[roomID]["inputs"]["b"]
       }));
     }
   });
@@ -119,9 +138,7 @@ function Utf8ArrayToStr(array) {
       // 1110 xxxx  10xx xxxx  10xx xxxx
       char2 = array[i++];
       char3 = array[i++];
-      out += String.fromCharCode(((c & 0x0F) << 12) |
-                     ((char2 & 0x3F) << 6) |
-                     ((char3 & 0x3F) << 0));
+      out += String.fromCharCode(((c & 0x0F) << 12) | ((char2 & 0x3F) << 6) | ((char3 & 0x3F) << 0));
       break;
   }
   }

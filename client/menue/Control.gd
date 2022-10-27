@@ -8,9 +8,6 @@ onready var joinLobbyButton = $joinLobbyButton
 onready var statusLabel = $statusLabel
 onready var webSocketScript = get_node("/root/WebSocket")
 
-func _ready():
-	pass
-
 
 func _on_createLobbyButton_pressed():
 	webSocketScript._create_room()
