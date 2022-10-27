@@ -36,7 +36,6 @@ func _process(_delta):
 
 func _on_data():
 	var data = JSON.parse(_client.get_peer(1).get_packet().get_string_from_utf8()).result;
-	print(data)
 	#create room
 	if data.type == "roomID":
 		print("created room: "+ data.ID)
