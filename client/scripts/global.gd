@@ -8,7 +8,6 @@ var host = false
 var roomID = ""
 var speed = 300
 
-
 func get_position_self_as_vec2():
 	return Vector2(position_self["x"], position_self["y"])
 

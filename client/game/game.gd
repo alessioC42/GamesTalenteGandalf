@@ -1,12 +1,10 @@
 extends Node2D
 
-
 onready var _global = get_node("/root/global")
 var player_scene = preload("res://game/player/player.tscn")
 var mate_scene = preload("res://game/mate/mate.tscn")
 var player = player_scene.instance()
 var mate = mate_scene.instance()
-
 
 func _ready():
 	add_child(player)
