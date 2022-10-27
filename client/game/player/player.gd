@@ -4,6 +4,11 @@ onready var _global = get_node("/root/global")
 
 var velocity = Vector2()
 
+var animationSprite = null
+
+func _ready():
+	_set_color()
+
 func get_input():
 	velocity = Vector2()
 	if _global.input_self[0] == "1":
@@ -21,3 +26,23 @@ func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 	_global.position_self = {"x": position.x, "y": position.y}
+	_set_right_animation()
+
+func _set_right_animation():
+	animationSprite.playing = true
+	if "1" in _global.input_self:
+		animationSprite.animation = "walk"
+		if _global.input_self[0] == "1":
+			animationSprite.flip_h = false
+		elif _global.input_self[1] == "1":
+			animationSprite.flip_h = true
+	else:
+		animationSprite.animation = "idle"
+
+func _set_color():
+	if _global.host:
+		animationSprite = $bluesprite
+		$redsprite.visible = false
+	else:
+		animationSprite = $redsprite
+		$bluesprite.visible = false

@@ -8,7 +8,7 @@ const server = new WebSocket.Server({
 var rooms = {}
 
 server.on('connection', function(socket) {
-  console.log("connection");
+  console.log("a new client has logged in.");
   var ownRoomID = ""
 
   socket.on('message', (msg) => {
@@ -88,35 +88,42 @@ server.on('connection', function(socket) {
       let input = task.input;
       let roomID = task.roomID;
 
+      try {
       if (rooms[roomID]["socketA"] == socket) {
         rooms[roomID]["inputs"]["a"] = input;
       } else if (rooms[roomID]["socketB"] == socket) {
         rooms[roomID]["inputs"]["b"] = input;
       }
-
-      rooms[roomID]["socketA"].send(JSON.stringify({
-        "type": "inputs",
-        "roomID": roomID,
-        "mate": rooms[roomID]["inputs"]["b"],
-        "me": rooms[roomID]["inputs"]["a"]
-      }));
-      rooms[roomID]["socketB"].send(JSON.stringify({
-        "type": "inputs",
-        "roomID": roomID,
-        "mate": rooms[roomID]["inputs"]["a"],
-        "me": rooms[roomID]["inputs"]["b"]
-      }));
+      } 
+      catch (err) {
+        close_room(roomID);
+      }
+      try {
+        rooms[roomID]["socketA"].send(JSON.stringify({
+          "type": "inputs",
+          "roomID": roomID,
+          "mate": rooms[roomID]["inputs"]["b"],
+          "me": rooms[roomID]["inputs"]["a"]
+        }));
+        rooms[roomID]["socketB"].send(JSON.stringify({
+          "type": "inputs",
+          "roomID": roomID,
+          "mate": rooms[roomID]["inputs"]["a"],
+          "me": rooms[roomID]["inputs"]["b"]
+        }));
+      } catch (_err) {close_room(roomID)}
     }
   });
 
   socket.on("close", ()=>{
     close_room(ownRoomID);
+    console.log("a user has logged out.")
   });
 
   socket.on("error", ()=>{
     close_room(ownRoomID);
+    console.log("an socket error occured... closing room.")
   })
-
 });
 
 function close_room(roomID) {

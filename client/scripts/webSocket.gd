@@ -1,7 +1,7 @@
 extends Node
 
 
-export var websocket_url = "ws://coxcopi.de:17339"
+export var websocket_url = "ws://localhost:17339"
 onready var _global = get_node("/root/global")
 
 var _client = WebSocketClient.new()
@@ -65,10 +65,6 @@ func _create_room():
 
 func _join_room(roomID):
 	_send_data('{"type":"join_room", "roomID": "'+roomID+'"}')
-
-func _send_pos(x, y):
-	pass
-	#_send_data('{"type":"set_position","roomID": "'+_global.roomID+'" ,"position": {"x": '+str(x)+', "y": '+str(y)+'}}')
 
 func _send_input(inputstr):
 	_send_data('{"type":"set_input","roomID": "'+_global.roomID+'" ,"input": "'+inputstr+'"}')
