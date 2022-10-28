@@ -10,7 +10,7 @@ func _ready():
 	add_child(player)
 	add_child(mate)
 	if _global.host:
-		player.position.x = -1070
+		player.position.x = -1075
 		player.position.y = 20
 		mate.position.x = -1070
 		mate.position.y = 70

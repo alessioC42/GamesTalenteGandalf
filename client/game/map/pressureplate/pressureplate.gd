@@ -19,7 +19,6 @@ func _on_pressureplate_body_entered(body):
 			if (body.is_blue()):
 				$Sprite.texture = preload("res://game/map/sprites/asset_blaue druckplatte unten.png")
 				global.enable_door_plate(door_index, is_red)
-		
 
 func _on_pressureplate_body_exited(body):
 	if (body.is_in_group("player") or body.is_in_group("mate")):

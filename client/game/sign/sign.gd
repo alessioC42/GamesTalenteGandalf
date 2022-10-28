@@ -9,6 +9,8 @@ onready var tween = Tween.new()
 
 export(PoolStringArray) var texts
 
+export(bool) var autoadvance = false
+export(bool) var jsk = false
 export(bool) var is_gandalf = false
 
 # only used for gandalf
@@ -29,25 +31,38 @@ func _ready():
 
 func _input(event):
 	if (Input.is_action_just_pressed("interact")):
-		if (text_hidden):
-			text_hidden = false
-			$speechbubble/AnimationPlayer.play("reveal")
-		if ($speechbubble/Sprite/Control/Label.percent_visible < 0.9):
-			tween.stop_all()
-			$speechbubble/Sprite/Control/Label.percent_visible = 1.0
-			return
-		if (text_index == texts.size()):
-			text_index = 0
-		if (is_gandalf):
-			var p = get_node("AudioStreamPlayer2D") as AudioStreamPlayer2D
-			p.stop()
-			p.stream = audioqueues[text_index]
-			p.play()
+		if (autoadvance and text_hidden):
+			next()
+			$AudioStreamPlayer2D.play()
+		if (!autoadvance):
+			next()
+
+func next():
+	if (text_hidden):
+		text_hidden = false
+		$speechbubble/AnimationPlayer.play("reveal")
+	if ($speechbubble/Sprite/Control/Label.percent_visible < 0.9 and !autoadvance):
+		tween.stop_all()
 		$speechbubble/Sprite/Control/Label.percent_visible = 1.0
-		$speechbubble/Sprite/Control/Label.text = texts[text_index]
-		tween.interpolate_property($speechbubble/Sprite/Control/Label, "percent_visible", 0.0, 1.0, float(texts[text_index].length()) / 16.0)
-		tween.start()
-		text_index += 1
+		return
+	if (text_index == texts.size()):
+		text_index = 0
+	if (is_gandalf):
+		var p = get_node("AudioStreamPlayer2D") as AudioStreamPlayer2D
+		p.stop()
+		p.stream = audioqueues[text_index]
+		p.play()
+	$speechbubble/Sprite/Control/Label.percent_visible = 0.0
+	$speechbubble/Sprite/Control/Label.text = texts[text_index]
+	tween.interpolate_property($speechbubble/Sprite/Control/Label, "percent_visible", 0.0, 1.0, float(texts[text_index].length()) / 16.0)
+	tween.start()
+	text_index += 1
+	if (autoadvance):
+		print("AAAA")
+		if (text_index == texts[text_index].length()):
+			return
+		yield(get_tree().create_timer(float(texts[text_index].length()) / 8.0), "timeout")
+		next()
 
 func _process(delta):
 	if (player_reference != null):

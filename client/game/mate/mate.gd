@@ -32,11 +32,15 @@ func _set_right_animation():
 	animationSprite.playing = true
 	if "1" in _global.input_mate:
 		animationSprite.animation = "walk"
+		$Particles2D.emitting = true
 		if _global.input_mate[0] == "1":
 			animationSprite.flip_h = false
+			$Particles2D.gravity.x = -40
 		elif _global.input_mate[1] == "1":
 			animationSprite.flip_h = true
+			$Particles2D.gravity.x = 40
 	else:
+		$Particles2D.emitting = false
 		animationSprite.animation = "idle"
 
 func is_blue():

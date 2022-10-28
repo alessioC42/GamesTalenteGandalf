@@ -6,7 +6,7 @@ var input_self = "0000"
 var input_mate = "0000"
 var host = false
 var roomID = ""
-var speed = 200
+var speed = 150
 
 var doors = [
 	{
