@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cam.gd" type="Script" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://game/map/audio/Gandalf_Schild.wav" type="AudioStream" id=25]
 [ext_resource path="res://game/map/audio/Gandalf_Magiershow.wav" type="AudioStream" id=26]
 [ext_resource path="res://game/map/audio/Gandalf_Sackgasse.wav" type="AudioStream" id=27]
+[ext_resource path="res://game/zombie/zombie.tscn" type="PackedScene" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 15.9622, 0.0162582, 15.9622, 0.0162582, 0, 16, 0 )
@@ -422,7 +423,7 @@ texture = ExtResource( 5 )
 position = Vector2( 1648, 131 )
 z_index = 2
 frames = SubResource( 16 )
-frame = 5
+frame = 10
 playing = true
 
 [node name="AssetTorUnten" type="Sprite" parent="."]
@@ -5165,14 +5166,17 @@ texture = ExtResource( 9 )
 position = Vector2( -1134.28, 63.9159 )
 texture = ExtResource( 8 )
 
-[node name="asset_busch 2" type="Sprite" parent="."]
-position = Vector2( -1141.52, 79.3756 )
+[node name="asset_busch 201" type="Sprite" parent="image"]
+position = Vector2( -1140.52, 79.3756 )
 texture = ExtResource( 8 )
 
-[node name="asset_busch klein" type="Sprite" parent="."]
-position = Vector2( -1134.09, 96.3218 )
+[node name="asset_busch klein164" type="Sprite" parent="image"]
+position = Vector2( -1133.09, 96.3218 )
 texture = ExtResource( 9 )
 
-[node name="asset_busch" type="Sprite" parent="."]
-position = Vector2( -1141.22, 107.619 )
+[node name="asset_busch250" type="Sprite" parent="image"]
+position = Vector2( -1140.22, 107.619 )
 texture = ExtResource( 11 )
+
+[node name="zombie" parent="." instance=ExtResource( 28 )]
+position = Vector2( -403.734, 38.4044 )
