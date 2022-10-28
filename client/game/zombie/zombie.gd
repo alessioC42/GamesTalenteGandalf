@@ -18,11 +18,8 @@ func set_direction():
 func _physics_process(delta):
 	set_direction()
 	var colisioninfo = move_and_collide(velocity)
-
 	if colisioninfo:
-		if (colisioninfo.collider.name in ["player", "mate"]):
-			_global._reset_to_menue()
-		elif (colisioninfo.collider.name == "collisionMap"):
+		if (colisioninfo.collider.name == "collisionMap"):
 			_turn()
 
 func _turn():
@@ -30,3 +27,8 @@ func _turn():
 		direction = "up"
 	elif (direction == "up"):
 		direction = "down"
+
+
+func _on_Area2D_body_entered(body):
+	if (body.get_name() in ["player", "mate"]):
+		_global._reset_to_menue()

@@ -1,9 +1,11 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cam.gd" type="Script" id=2]
 [ext_resource path="res://game/map/sprites/asset_ruine2.png" type="Texture" id=3]
 [ext_resource path="res://game/map/sprites/asset_ gras pattern.png" type="Texture" id=4]
+[ext_resource path="res://game/zombie/zombie.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/cogwheel/cogwheel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/map/sprites/asset_treppe.png" type="Texture" id=7]
 [ext_resource path="res://game/map/sprites/asset_busch 2.png" type="Texture" id=8]
 [ext_resource path="res://game/map/sprites/asset_busch klein.png" type="Texture" id=9]
@@ -403,7 +405,7 @@ tile_data = PoolIntArray( -5701715, 18, 0, -5701714, 18, 0, -5701713, 18, 0, -57
 position = Vector2( 1648, 131 )
 z_index = 2
 frames = SubResource( 16 )
-frame = 3
+frame = 9
 playing = true
 
 [node name="AssetTorUnten" type="Sprite" parent="."]
@@ -5142,16 +5144,16 @@ texture = ExtResource( 9 )
 position = Vector2( -1134.28, 63.9159 )
 texture = ExtResource( 8 )
 
-[node name="asset_busch 2" type="Sprite" parent="."]
-position = Vector2( -1141.52, 79.3756 )
+[node name="asset_busch 201" type="Sprite" parent="image"]
+position = Vector2( -1140.52, 79.3756 )
 texture = ExtResource( 8 )
 
-[node name="asset_busch klein" type="Sprite" parent="."]
-position = Vector2( -1134.09, 96.3218 )
+[node name="asset_busch klein164" type="Sprite" parent="image"]
+position = Vector2( -1133.09, 96.3218 )
 texture = ExtResource( 9 )
 
-[node name="asset_busch" type="Sprite" parent="."]
-position = Vector2( -1141.22, 107.619 )
+[node name="asset_busch250" type="Sprite" parent="image"]
+position = Vector2( -1140.22, 107.619 )
 texture = ExtResource( 11 )
 
 [node name="Door2" parent="." instance=ExtResource( 14 )]
@@ -5173,5 +5175,11 @@ is_red = true
 door_index = 1
 
 [node name="pressureplate4" parent="." instance=ExtResource( 28 )]
-position = Vector2( 648, -185 )
+position = Vector2( 632.898, -165.887 )
 door_index = 1
+
+[node name="zombie" parent="." instance=ExtResource( 5 )]
+position = Vector2( -347.058, 45.3845 )
+
+[node name="cogwheel" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1138.38, -446.502 )

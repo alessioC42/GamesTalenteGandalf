@@ -64,3 +64,7 @@ func _reset_to_menue():
 	position_self = {"x": 0, "y": 0}
 	WebSocket._client.disconnect_from_host()
 	WebSocket._client.connect_to_url(WebSocket.websocket_url, ["lws-mirror-protocol"])
+
+func _gamewin():
+	#mb sound abspielen?
+	_reset_to_menue()
