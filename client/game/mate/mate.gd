@@ -53,6 +53,5 @@ func _set_color():
 func _local_position_correction():
 	
 	var difference = sqrt((position.x-_global.position_mate["x"])*(position.y-_global.position_mate["y"])+(position.y-_global.position_mate["y"])*(position.y-_global.position_mate["y"]))
-	print(difference)
 	if difference >= 30:
 		position = Vector2(_global.position_mate["x"], _global.position_mate["y"])

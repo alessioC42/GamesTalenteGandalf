@@ -58,6 +58,8 @@ func _on_data():
 		var errorTextLabel = get_tree().get_nodes_in_group("errorStatusLabel")
 		if len(errorTextLabel) >= 1:
 			errorTextLabel[0].text = data.error
+	elif data.type == "room_close":
+		_global._reset_to_menue()
 
 func _create_room():
 	_send_data('{"type":"createroom"}')

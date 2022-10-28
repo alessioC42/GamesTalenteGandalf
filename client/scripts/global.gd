@@ -52,4 +52,15 @@ func disable_door_plate(door_index : int, red : bool):
 func _process(_delta):
 	#print(str(position_self) + str(position_mate))
 	pass
-	
+
+func _reset_to_menue():
+	get_tree().change_scene_to(load("res://menue/mainmenue.tscn"))
+	host = false
+	input_self = "0000"
+	input_mate = "0000"
+	roomID = ""
+	speed = 200
+	position_mate = {"x": 0, "y": 0}
+	position_self = {"x": 0, "y": 0}
+	WebSocket._client.disconnect_from_host()
+	WebSocket._client.connect_to_url(WebSocket.websocket_url, ["lws-mirror-protocol"])
