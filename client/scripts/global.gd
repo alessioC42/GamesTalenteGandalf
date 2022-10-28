@@ -8,12 +8,46 @@ var host = false
 var roomID = ""
 var speed = 200
 
+var doors = [
+	{
+		"red": false,
+		"blue": false,
+		"path": "game/Door1"
+	},
+	{
+		"red": false,
+		"blue": false,
+		"path": "game/Door2"
+	}
+]
 
 func get_position_self_as_vec2():
 	return get_tree().get_nodes_in_group("player")[0].position
  
 func get_position_mate_as_vec2():
 	return get_tree().get_nodes_in_group("mate")[0].position
+
+func enable_door_plate(door_index : int, red : bool):
+	if (door_index >= 0 and door_index < doors.size()):
+		if (red):
+			doors[door_index]["red"] = true
+		else:
+			doors[door_index]["blue"] = true
+			
+		# Check if both pressure plates are pressed
+		if (doors[door_index]["red"] and doors[door_index]["blue"]):
+			get_tree().get_root().get_node(doors[door_index]["path"]).open()
+
+func disable_door_plate(door_index : int, red : bool):
+	if (door_index >= 0 and door_index < doors.size()):
+		if (red):
+			doors[door_index]["red"] = false
+		else:
+			doors[door_index]["blue"] = false
+		
+		# Check if both pressure plates are pressed
+		if (doors[door_index]["red"] and doors[door_index]["blue"]):
+			get_tree().get_root().get_node(doors[door_index]["path"]).open()
 
 func _process(_delta):
 	#print(str(position_self) + str(position_mate))

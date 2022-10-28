@@ -65,9 +65,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="player" type="KinematicBody2D" groups=[
-"player",
-]]
+[node name="player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -76,14 +74,16 @@ shape = SubResource( 1 )
 
 [node name="bluesprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1.05114, -20.3917 )
+z_index = 3
 frames = SubResource( 17 )
 animation = "walk"
-frame = 1
+frame = 2
 playing = true
 
 [node name="redsprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1.05114, -20.3917 )
+z_index = 3
 frames = SubResource( 11 )
 animation = "walk"
-frame = 1
+frame = 2
 playing = true

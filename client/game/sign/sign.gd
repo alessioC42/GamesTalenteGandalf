@@ -21,6 +21,11 @@ func _ready():
 	add_child(tween)
 	$speechbubble/Sprite/Control/Label.text = texts[0]
 	$speechbubble/AnimationPlayer.play("hide")
+	
+	audioqueues = audioqueues.duplicate()
+	
+	if (get_node_or_null("AudioStreamPlayer2D") == null):
+		is_gandalf = false
 
 func _input(event):
 	if (Input.is_action_just_pressed("interact")):

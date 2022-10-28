@@ -39,6 +39,9 @@ func _set_right_animation():
 	else:
 		animationSprite.animation = "idle"
 
+func is_blue():
+	return !_global.host
+
 func _set_color():
 	if _global.host:
 		animationSprite = $redsprite
