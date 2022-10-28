@@ -66,5 +66,8 @@ func _create_room():
 func _join_room(roomID):
 	_send_data('{"type":"join_room", "roomID": "'+roomID+'"}')
 
+func _send_pos(x, y):
+	_send_data('{"type":"set_position","roomID": "'+_global.roomID+'" ,"position": {"x": '+str(x)+', "y": '+str(y)+'}}')
+
 func _send_input(inputstr):
 	_send_data('{"type":"set_input","roomID": "'+_global.roomID+'" ,"input": "'+inputstr+'"}')

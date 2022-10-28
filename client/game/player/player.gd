@@ -25,8 +25,8 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
-	_global.position_self = {"x": position.x, "y": position.y}
 	_set_right_animation()
+	WebSocket._send_pos(position.x, position.y)
 
 func _set_right_animation():
 	animationSprite.playing = true

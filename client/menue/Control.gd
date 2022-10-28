@@ -19,3 +19,4 @@ func _on_joinLobbyButton_pressed():
 
 func _on_lobbyEntry_focus_exited():
 	lobbyEntryLabel.text = lobbyEntryLabel.text.to_upper()
+

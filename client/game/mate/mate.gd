@@ -25,7 +25,8 @@ func _physics_process(delta):
 	_set_right_animation()
 	get_input()
 	velocity = move_and_slide(velocity)
-	_global.position_mate = {"x": position.x, "y": position.y}
+	_local_position_correction()
+
 
 func _set_right_animation():
 	animationSprite.playing = true
@@ -45,3 +46,10 @@ func _set_color():
 	else:
 		animationSprite = $bluesprite
 		$redsprite.visible = false
+
+func _local_position_correction():
+	
+	var difference = sqrt((position.x-_global.position_mate["x"])*(position.y-_global.position_mate["y"])+(position.y-_global.position_mate["y"])*(position.y-_global.position_mate["y"]))
+	print(difference)
+	if difference >= 30:
+		position = Vector2(_global.position_mate["x"], _global.position_mate["y"])
