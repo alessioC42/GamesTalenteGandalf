@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Gandalf_Sackgasse.wav-53ad3e009612b657b5eabb496f25245d.sample"
+
+[deps]
+
+source_file="res://game/map/audio/Gandalf_Sackgasse.wav"
+dest_files=[ "res://.import/Gandalf_Sackgasse.wav-53ad3e009612b657b5eabb496f25245d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

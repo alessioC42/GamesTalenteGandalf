@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cam.gd" type="Script" id=2]
@@ -22,6 +22,11 @@
 [ext_resource path="res://game/map/sprites/asset_ruine1.png" type="Texture" id=20]
 [ext_resource path="res://game/map/sprites/asset_blätter.png" type="Texture" id=21]
 [ext_resource path="res://game/map/sprites/TileMapPlaceholder.png" type="Texture" id=22]
+[ext_resource path="res://game/sign/sign.tscn" type="PackedScene" id=23]
+[ext_resource path="res://game/sign/gandalf.tscn" type="PackedScene" id=24]
+[ext_resource path="res://game/map/audio/Gandalf_Schild.wav" type="AudioStream" id=25]
+[ext_resource path="res://game/map/audio/Gandalf_Magiershow.wav" type="AudioStream" id=26]
+[ext_resource path="res://game/map/audio/Gandalf_Sackgasse.wav" type="AudioStream" id=27]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 15.9622, 0.0162582, 15.9622, 0.0162582, 0, 16, 0 )
@@ -417,7 +422,7 @@ texture = ExtResource( 5 )
 position = Vector2( 1648, 131 )
 z_index = 2
 frames = SubResource( 16 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="AssetTorUnten" type="Sprite" parent="."]
@@ -429,6 +434,20 @@ texture = ExtResource( 15 )
 [node name="Wall" type="Sprite" parent="."]
 position = Vector2( 792, 17 )
 texture = ExtResource( 14 )
+
+[node name="sign_labyrinth" parent="." instance=ExtResource( 23 )]
+position = Vector2( 901, 0 )
+texts = PoolStringArray( "Hier Labyrinth.", "Nicht betreten.", "Keiner je raus kam!" )
+
+[node name="sign_anfang" parent="." instance=ExtResource( 23 )]
+position = Vector2( -928, -4 )
+texts = PoolStringArray( "Hallo hier ist John Stewart King.", "Bevor ich hier mein Ableben akzeptiere ...", "... wollte ich vorher noch sagen: ...", "Mhhm hier sind überall Pflanzen ZOMBIES!!!!!", "Ein schönes Leben Ihnen noch." )
+
+[node name="gandalf" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1633, -197 )
+texts = PoolStringArray( "Ja ich bin Gandalf und ihr kommt hier nicht vorbei.", "Hier kann eh keiner vorbei, wegen der Sackgasse hinter mir.", "Nein mein Freund, ich bin doch keine Magiershow!" )
+is_gandalf = true
+audioqueues = [ ExtResource( 25 ), ExtResource( 27 ), ExtResource( 26 ) ]
 
 [node name="image" type="Node2D" parent="."]
 position = Vector2( -1, 0 )
@@ -754,6 +773,7 @@ offset = Vector2( -461.723, -214.992 )
 
 [node name="asset_laubbaum ohne lianen" type="Sprite" parent="image"]
 position = Vector2( 750.614, -43.2417 )
+z_index = 1
 texture = ExtResource( 17 )
 
 [node name="asset_laubbaum ohne lianen2" type="Sprite" parent="image"]
