@@ -1,1 +1,8 @@
 server/node_modules
+client/export_presets.cfg
+itch/index.pck
+itch/index.x86_64
+itch/linux.zip
+windows/windows.exe
+windows/windows.pck
+windows/windows.zip
