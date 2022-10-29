@@ -457,7 +457,6 @@ tile_data = PoolIntArray( -5701715, 18, 0, -5701714, 18, 0, -5701713, 18, 0, -57
 position = Vector2( 1648, 131 )
 z_index = 3
 frames = SubResource( 16 )
-frame = 11
 playing = true
 
 [node name="AssetTorUnten" type="Sprite" parent="."]
@@ -5271,7 +5270,7 @@ is_red = true
 door_index = 1
 
 [node name="pressureplate4" parent="." instance=ExtResource( 28 )]
-position = Vector2( 632.898, -165.887 )
+position = Vector2( 632, -183 )
 door_index = 1
 
 [node name="zombie" parent="." instance=ExtResource( 5 )]
@@ -5284,7 +5283,8 @@ position = Vector2( 1138.38, -446.502 )
 position = Vector2( -1075, 45 )
 texture = ExtResource( 29 )
 
-[node name="sign" parent="." instance=ExtResource( 24 )]
+[node name="gandalf" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1634, -174 )
-texts = PoolStringArray( "AAAAAAAAAAAAAA", "VVVVVVVVVVVV", "BBBBBBBBBBBBBBBB" )
+texts = PoolStringArray( "Ich bin Gandalf der Graue, und ihr kommt nicht vorbei! ...", "Hier kann eh keiner Vorbei, wegen der Sackgasse hinter mir! ...", "Nein mein Freund, ich bin doch keine Magiershow!" )
+is_gandalf = true
 audioqueues = [ ExtResource( 25 ), ExtResource( 27 ), ExtResource( 26 ) ]

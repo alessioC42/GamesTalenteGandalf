@@ -38,6 +38,8 @@ func _input(event):
 			next()
 
 func next():
+	if (!is_close and !autoadvance):
+		return
 	if (text_hidden):
 		text_hidden = false
 		$speechbubble/AnimationPlayer.play("reveal")
@@ -61,7 +63,7 @@ func next():
 		print("AAAA")
 		if (text_index == texts[text_index].length()):
 			return
-		yield(get_tree().create_timer(float(texts[text_index].length()) / 8.0), "timeout")
+		yield(get_tree().create_timer(float(texts[text_index].length()) / 10.0), "timeout")
 		next()
 
 func _process(delta):

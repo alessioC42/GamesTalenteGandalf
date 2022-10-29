@@ -14,6 +14,8 @@ export(bool) var is_gandalf = false
 # only used for gandalf
 export(Array) var audioqueues
 
+var player_near : bool = false
+
 func _ready():
 	text_hidden = true
 	$direction.visible = false
@@ -29,6 +31,8 @@ func _ready():
 
 func _input(event):
 	if (Input.is_action_just_pressed("interact")):
+		if (!is_close):
+			return
 		if (text_hidden):
 			text_hidden = false
 			$speechbubble/AnimationPlayer.play("reveal")
@@ -53,22 +57,22 @@ func _process(delta):
 	if (player_reference != null):
 		$direction.look_at(player_reference.global_position)
 
-func _on_directionAreaAA_body_entered(body):
+func _on_directionArea_body_entered(body):
 	if (body.is_in_group("player")):
 		$direction.visible = true
 		player_reference = body
 
-func _on_directionAreaAA_body_exited(body):
+func _on_directionArea_body_exited(body):
 	if (body.is_in_group("player")):
 		$direction.visible = false
 
-func _on_interactAreaAA_body_entered(body):
+func _on_interactArea_body_entered(body):
 	if (body.is_in_group("player")):
 		is_close = true
 		$direction.visible = false
 		$interact.visible = true
 
-func _on_interactAreaAA_body_exited(body):
+func _on_interactArea_body_exited(body):
 	if (body.is_in_group("player")):
 		is_close = false
 		$direction.visible = true

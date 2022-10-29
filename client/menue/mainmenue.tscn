@@ -312,7 +312,7 @@ modulate = Color( 0.176471, 0.172549, 0.168627, 1 )
 position = Vector2( 54, 48.459 )
 scale = Vector2( 0.252, 0.5 )
 frames = SubResource( 60 )
-frame = 28
+frame = 57
 playing = true
 
 [node name="createLobbyButton" type="TextureButton" parent="Control"]
