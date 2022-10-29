@@ -1,7 +1,7 @@
 extends Node
 
 
-export var websocket_url = "ws://coxcopi.de:17339"
+export var websocket_url = "ws://178.5.79.65:17339"
 onready var _global = get_node("/root/global")
 
 var _client = WebSocketClient.new()

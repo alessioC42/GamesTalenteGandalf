@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cam.gd" type="Script" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://game/map/sprites/asset_ruine1.png" type="Texture" id=20]
 [ext_resource path="res://game/map/sprites/asset_blätter.png" type="Texture" id=21]
 [ext_resource path="res://game/map/sprites/TileMapPlaceholder.png" type="Texture" id=22]
-[ext_resource path="res://game/sign/sign.tscn" type="PackedScene" id=23]
 [ext_resource path="res://game/sign/gandalf.tscn" type="PackedScene" id=24]
 [ext_resource path="res://game/map/audio/Gandalf_Schild.wav" type="AudioStream" id=25]
 [ext_resource path="res://game/map/audio/Gandalf_Magiershow.wav" type="AudioStream" id=26]
@@ -382,7 +381,7 @@ animations = [ {
 "speed": 13.0
 } ]
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -417,8 +416,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "dings"
+[sub_resource type="Animation" id=18]
 loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:position:y")
@@ -457,6 +455,7 @@ tile_data = PoolIntArray( -5701715, 18, 0, -5701714, 18, 0, -5701713, 18, 0, -57
 position = Vector2( 1648, 131 )
 z_index = 3
 frames = SubResource( 16 )
+frame = 11
 playing = true
 
 [node name="AssetTorUnten" type="Sprite" parent="."]
@@ -464,16 +463,6 @@ visible = false
 position = Vector2( 792, 42 )
 z_index = 1
 texture = ExtResource( 15 )
-
-[node name="sign_anfang" parent="." instance=ExtResource( 23 )]
-position = Vector2( -928, -4 )
-texts = PoolStringArray( "Hallo hier ist John Stewart King.", "Bevor ich hier mein Ableben akzeptiere ...", "... wollte ich vorher noch sagen: ...", "Mhhm hier sind überall Pflanzen ZOMBIES!!!!!", "Ein schönes Leben Ihnen noch." )
-autoadvance = true
-jsk = true
-
-[node name="sign_labyrinth" parent="." instance=ExtResource( 23 )]
-position = Vector2( 878, -30 )
-texts = PoolStringArray( "Hier Labyrinth", "Nicht betreten!", "Keiner je raus kam!" )
 
 [node name="control" type="Node2D" parent="."]
 
@@ -486,8 +475,8 @@ position = Vector2( -1003, 42 )
 texture = ExtResource( 30 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="control"]
-anims/RESET = SubResource( 18 )
-anims/dings = SubResource( 17 )
+anims/RESET = SubResource( 17 )
+anims/dings = SubResource( 18 )
 
 [node name="image" type="Node2D" parent="."]
 position = Vector2( -1, 0 )

@@ -1,15 +1,23 @@
-const PORT = 17339
+const WSPORT = 17339;
+const HTTPPORT = 8080;
+
+const app = require('express')();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 const WebSocket = require('ws');
 const server = new WebSocket.Server({
-  port: PORT
+  port: WSPORT
 });
 
-var rooms = {}
+var rooms = {};
+var playerCount = 0;
 
 server.on('connection', function (socket) {
   console.log("a new client has logged in.");
-  var ownRoomID = ""
+  playerCount += 1;
+  brodcastPlayerCount(playerCount);
+  var ownRoomID = "";
 
   socket.on('message', (msg) => {
     let task = JSON.parse(Utf8ArrayToStr(msg));
@@ -35,18 +43,20 @@ server.on('connection', function (socket) {
       socket.send(JSON.stringify({ "type": "roomID", "ID": roomID }));
       console.log("room created: " + roomID);
 
-      ownRoomID = roomID
+      ownRoomID = roomID;
+      brodcastOpenLobby(roomID);
 
     } else
 
       if (task.type == "join_room") {
         let roomID = task.roomID;
-        console.log("user trys to join lobby: " + roomID)
+        brodcastClosedLobby(roomID);
+        console.log("user trys to join lobby: " + roomID);
         if (roomID in rooms) {
           if (rooms[roomID]["socketB"] == undefined) {
             rooms[roomID]["socketB"] = socket;
             asociatedRoom = roomID;
-            socket.send(JSON.stringify({ "type": "joined_room", "ID": roomID }))
+            socket.send(JSON.stringify({ "type": "joined_room", "ID": roomID }));
             setTimeout(() => {
               rooms[roomID]["socketA"].send(JSON.stringify({ "type": "game_start" }));
               rooms[roomID]["socketB"].send(JSON.stringify({ "type": "game_start" }));
@@ -121,25 +131,28 @@ server.on('connection', function (socket) {
 
   socket.on("close", () => {
     close_room(ownRoomID);
-    console.log("a user has logged out.")
+    playerCount -= 1;
+    brodcastPlayerCount(playerCount);
+    console.log("a user has logged out.");
   });
 
   socket.on("error", () => {
     close_room(ownRoomID);
-    console.log("an socket error occured... closing room.")
+    console.log("an socket error occured... closing room.");
   })
 });
 
 function close_room(roomID) {
   if (rooms[roomID]) {
     try {
-      rooms[roomID]["socketA"].send(JSON.stringify({ "type": "room_close" }))
+      rooms[roomID]["socketA"].send(JSON.stringify({ "type": "room_close" }));
     } catch (_err) { }
     try {
-      rooms[roomID]["socketB"].send(JSON.stringify({ "type": "room_close" }))
+      rooms[roomID]["socketB"].send(JSON.stringify({ "type": "room_close" }));
     } catch (_err) { }
     rooms[roomID] = undefined;
-    console.log("room closed: " + roomID)
+    console.log("room closed: " + roomID);
+    brodcastClosedLobby(roomID);
   }
 }
 
@@ -182,3 +195,26 @@ function Utf8ArrayToStr(array) {
 
   return out;
 }
+
+
+function brodcastOpenLobby(code) {
+  io.emit("add_code", code);
+}
+
+function brodcastClosedLobby(code) {
+  io.emit("remove_code", code);
+}
+
+function brodcastPlayerCount(playerCount) {
+  io.emit("player_count", String(playerCount));
+}
+
+io.on("connection", (socket)=>{})
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/websrc/index.html');
+});
+
+http.listen(HTTPPORT, () => {
+  console.log(`Monitor server running at http://localhost:${HTTPPORT}/`);
+});

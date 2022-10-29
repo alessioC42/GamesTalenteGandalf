@@ -17,266 +17,266 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="ViewportTexture" id=66]
+[sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Control/Viewport")
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 498, 0, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 0, 498, 207 )
+region = Rect2( 498, 0, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 0, 498, 207 )
+region = Rect2( 996, 0, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 0, 498, 207 )
+region = Rect2( 1494, 0, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 207, 498, 207 )
+region = Rect2( 1992, 0, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 207, 498, 207 )
+region = Rect2( 0, 207, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 207, 498, 207 )
+region = Rect2( 498, 207, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 207, 498, 207 )
+region = Rect2( 996, 207, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 207, 498, 207 )
+region = Rect2( 1494, 207, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 414, 498, 207 )
+region = Rect2( 1992, 207, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 414, 498, 207 )
+region = Rect2( 0, 414, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 414, 498, 207 )
+region = Rect2( 498, 414, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 414, 498, 207 )
+region = Rect2( 996, 414, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 414, 498, 207 )
+region = Rect2( 1494, 414, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 621, 498, 207 )
+region = Rect2( 1992, 414, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 621, 498, 207 )
+region = Rect2( 0, 621, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 621, 498, 207 )
+region = Rect2( 498, 621, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 621, 498, 207 )
+region = Rect2( 996, 621, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 621, 498, 207 )
+region = Rect2( 1494, 621, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 828, 498, 207 )
+region = Rect2( 1992, 621, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 828, 498, 207 )
+region = Rect2( 0, 828, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 828, 498, 207 )
+region = Rect2( 498, 828, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 828, 498, 207 )
+region = Rect2( 996, 828, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 828, 498, 207 )
+region = Rect2( 1494, 828, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1035, 498, 207 )
+region = Rect2( 1992, 828, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 1035, 498, 207 )
+region = Rect2( 0, 1035, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 1035, 498, 207 )
+region = Rect2( 498, 1035, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 1035, 498, 207 )
+region = Rect2( 996, 1035, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 1035, 498, 207 )
+region = Rect2( 1494, 1035, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1242, 498, 207 )
+region = Rect2( 1992, 1035, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 1242, 498, 207 )
+region = Rect2( 0, 1242, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=33]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 1242, 498, 207 )
+region = Rect2( 498, 1242, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 1242, 498, 207 )
+region = Rect2( 996, 1242, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 1242, 498, 207 )
+region = Rect2( 1494, 1242, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1449, 498, 207 )
+region = Rect2( 1992, 1242, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 1449, 498, 207 )
+region = Rect2( 0, 1449, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 1449, 498, 207 )
+region = Rect2( 498, 1449, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 1449, 498, 207 )
+region = Rect2( 996, 1449, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 1449, 498, 207 )
+region = Rect2( 1494, 1449, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1656, 498, 207 )
+region = Rect2( 1992, 1449, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=42]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 1656, 498, 207 )
+region = Rect2( 0, 1656, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 1656, 498, 207 )
+region = Rect2( 498, 1656, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 1656, 498, 207 )
+region = Rect2( 996, 1656, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 1656, 498, 207 )
+region = Rect2( 1494, 1656, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=46]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 1863, 498, 207 )
+region = Rect2( 1992, 1656, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=47]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 1863, 498, 207 )
+region = Rect2( 0, 1863, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=48]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 1863, 498, 207 )
+region = Rect2( 498, 1863, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=49]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 1863, 498, 207 )
+region = Rect2( 996, 1863, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=50]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 1863, 498, 207 )
+region = Rect2( 1494, 1863, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=51]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 2070, 498, 207 )
+region = Rect2( 1992, 1863, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=52]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 2070, 498, 207 )
+region = Rect2( 0, 2070, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=53]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 2070, 498, 207 )
+region = Rect2( 498, 2070, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=54]
 atlas = ExtResource( 1 )
-region = Rect2( 1494, 2070, 498, 207 )
+region = Rect2( 996, 2070, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=55]
 atlas = ExtResource( 1 )
-region = Rect2( 1992, 2070, 498, 207 )
+region = Rect2( 1494, 2070, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=56]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 2277, 498, 207 )
+region = Rect2( 1992, 2070, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=57]
 atlas = ExtResource( 1 )
-region = Rect2( 498, 2277, 498, 207 )
+region = Rect2( 0, 2277, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=58]
 atlas = ExtResource( 1 )
-region = Rect2( 996, 2277, 498, 207 )
+region = Rect2( 498, 2277, 498, 207 )
 
 [sub_resource type="AtlasTexture" id=59]
 atlas = ExtResource( 1 )
+region = Rect2( 996, 2277, 498, 207 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 1 )
 region = Rect2( 1494, 2277, 498, 207 )
 
-[sub_resource type="SpriteFrames" id=60]
+[sub_resource type="SpriteFrames" id=61]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ) ],
 "loop": true,
 "name": "default",
 "speed": 20.0
 } ]
 
-[sub_resource type="DynamicFont" id=61]
+[sub_resource type="DynamicFont" id=62]
 size = 36
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=62]
+[sub_resource type="DynamicFont" id=63]
 size = 50
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=63]
+[sub_resource type="DynamicFont" id=64]
 size = 40
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=64]
+[sub_resource type="DynamicFont" id=65]
 size = 31
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=65]
+[sub_resource type="DynamicFont" id=66]
 size = 26
 font_data = ExtResource( 8 )
 
@@ -296,7 +296,7 @@ script = ExtResource( 2 )
 [node name="TextureRect" type="TextureRect" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 66 )
+texture = SubResource( 2 )
 expand = true
 flip_v = true
 
@@ -311,8 +311,8 @@ render_target_update_mode = 3
 modulate = Color( 0.176471, 0.172549, 0.168627, 1 )
 position = Vector2( 54, 48.459 )
 scale = Vector2( 0.252, 0.5 )
-frames = SubResource( 60 )
-frame = 57
+frames = SubResource( 61 )
+frame = 29
 playing = true
 
 [node name="createLobbyButton" type="TextureButton" parent="Control"]
@@ -335,7 +335,7 @@ margin_left = 62.0
 margin_top = 55.0
 margin_right = 326.0
 margin_bottom = 102.0
-custom_fonts/font = SubResource( 61 )
+custom_fonts/font = SubResource( 62 )
 text = "Create Lobby"
 align = 1
 valign = 1
@@ -343,11 +343,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lobbyCodeLabel" type="Label" parent="Control" groups=["lobbyCodeLabel"]]
+[node name="lobbyCodeLabel" type="Label" parent="Control" groups=[
+"lobbyCodeLabel",
+]]
 margin_top = 118.0
 margin_right = 389.0
 margin_bottom = 193.0
-custom_fonts/font = SubResource( 62 )
+custom_fonts/font = SubResource( 63 )
 text = "XXXXX"
 align = 1
 valign = 1
@@ -375,7 +377,7 @@ margin_left = 62.0
 margin_top = 271.0
 margin_right = 326.0
 margin_bottom = 318.0
-custom_fonts/font = SubResource( 61 )
+custom_fonts/font = SubResource( 62 )
 text = "Join Lobby"
 align = 1
 valign = 1
@@ -388,15 +390,17 @@ margin_left = 80.9955
 margin_top = 203.328
 margin_right = 306.995
 margin_bottom = 254.328
-custom_fonts/font = SubResource( 63 )
+custom_fonts/font = SubResource( 64 )
 align = 1
 placeholder_text = "XXXXX"
 
-[node name="statusLabel" type="Label" parent="Control" groups=["errorStatusLabel"]]
+[node name="statusLabel" type="Label" parent="Control" groups=[
+"errorStatusLabel",
+]]
 margin_top = 407.0
 margin_right = 391.0
 margin_bottom = 601.0
-custom_fonts/font = SubResource( 64 )
+custom_fonts/font = SubResource( 65 )
 text = "Create a lobby or join a lobby to start the game."
 align = 1
 valign = 1
@@ -410,7 +414,7 @@ margin_left = 378.0
 margin_top = 12.8245
 margin_right = 1018.0
 margin_bottom = 613.824
-custom_fonts/font = SubResource( 65 )
+custom_fonts/font = SubResource( 66 )
 text = "Game Developed By Gandalf und die Hobbits
 = Dev =
 Henrik V.
@@ -431,7 +435,6 @@ https://youtu.be/b7WsHBUhZSY
 margin note
 gandalf is the best"
 align = 1
-
 [connection signal="pressed" from="Control/createLobbyButton" to="Control" method="_on_createLobbyButton_pressed"]
 [connection signal="pressed" from="Control/joinLobbyButton" to="Control" method="_on_joinLobbyButton_pressed"]
 [connection signal="focus_exited" from="Control/lobbyEntry" to="Control" method="_on_lobbyEntry_focus_exited"]
